@@ -9,7 +9,49 @@ body{
 }
 
 :root{
-    --lt:rgba(0, 0, 0, 0.842);
+    --lt:rgba(53, 52, 52, 0.5);
     --dt:whitesmoke;
+
+    --bg-dt:linear-gradient(to bottom, rgba(0, 0, 0, 0.877), rgba(34, 32, 32, 0.938));
     --pc:rgb(224, 247, 19);
 }
+
+.loader-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-track{
+    width: 70%;
+    margin: auto;
+    height: 10px;
+    position: relative;
+    background-color: rgba(20, 20, 20, 0.11);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-bar{
+    height: 90%;
+    border-radius: 12px;
+    width: 100%;
+    margin: auto;
+    background-color: var(--pc);
+    transform: scaleX(0);
+    opacity: 0.6;
+    animation: load-in 3s linear 1;
+}
+
+@keyframes load-in {
+    0%{transform: scaleX(0);}
+    100%{transform: scaleX(1);}
+}
+
