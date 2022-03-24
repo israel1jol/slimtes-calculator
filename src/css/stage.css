@@ -1,0 +1,11 @@
+.stage{
+  height: 100vh;
+}
+
+.stage-dark{
+    background: var(--bg-dt);
+}
+
+.stage-light{
+    background: white;
+}
