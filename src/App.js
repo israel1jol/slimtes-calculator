@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";;
 import './css/continue.css';
 import "./css/App.css";
-import CalculatorStage from "./Components/CalculatorStage";
-import { ModeProvider } from "./Context/Mode/ModeContext";
+import { ModeProvider } from "./Context/Mode/ModeProvider";
+import { ThemeProvider } from "./Context/Theme/ThemeProvider";
+import { Loader } from "./Components/Loader";
 
 const App = () => {
     const [showCalculator, setShowCalculator] = useState(false);
+
+    const CalculatorStage = React.lazy(() => import("./Components/CalculatorStage"))
+
     return (
         <div>
-            <ModeProvider>
-            {
-                showCalculator ? <CalculatorStage /> : <Continue setShowCalculator={setShowCalculator}/>
-            }
-            </ModeProvider>
+            <Suspense fallback={<Loader />}>
+                <ThemeProvider>
+                    <ModeProvider>
+                    {
+                        showCalculator ? <CalculatorStage /> : <Continue setShowCalculator={setShowCalculator}/>
+                    }
+                    </ModeProvider>
+                </ThemeProvider>
+            </Suspense>
         </div>
     )
 }
