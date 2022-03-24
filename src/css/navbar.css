@@ -1,6 +1,11 @@
+li{
+    cursor: pointer;
+}
+
 .cal-type-light, .cal-type-dark{
     font-size: 20px;
     font-weight: 200;
+    z-index: 1000000;
 }
 
 .cal-type-light{
@@ -48,21 +53,42 @@
     background-color: var(--dt);
 }
 
-.menu-btn-light.open, .menu-btn-dark.open{
+.menu-btn-light.open{
     background-color: var(--dt);
     width: 5px;
     transform: rotate(50deg) translate(-10px);
 }
 
-.menu-btn-light.open::before, .menu-btn-dark.open::before{
+.menu-btn-dark.open{
+    background-color: var(--lt);
+    width: 5px;
+    transform: rotate(50deg) translate(-10px);
+}
+
+.menu-btn-light.open::before{
     background-color: var(--dt);
     transform: translateY(10px);
 }
 
-.menu-btn-light.open::after, .menu-btn-dark.open::after{
+.menu-btn-dark.open::before{
+    background-color: var(--lt);
+    transform: translateY(10px);
+}
+
+.menu-btn-light.open::after{
     width: 30px;
     background-color: var(--dt);
     transform: rotate(84deg) translate(-10px);
+}
+
+.menu-btn-dark.open::after{
+    width: 30px;
+    background-color: var(--lt);
+    transform: rotate(84deg) translate(-10px);
+}
+
+.menu-btn-dark.open + .cal-type-dark{
+    color: var(--lt);
 }
 
 
@@ -90,8 +116,8 @@
 }
 
 .help-btn-dark{
-    background-color: var(--dt);
-    color: var(--lt);
+    background-color:rgba(253, 253, 253, 0.288);
+    color: rgb(43, 43, 43);
     transition: all ease 0.5s;
 }
 
@@ -100,23 +126,41 @@
     color: var(--dt);
 }
 
-.sliding-menu-light, .sliding-menu-dark{
+.sliding-menu{
     z-index: 100;
     display: flex;
-    min-height: 40vh;
+    height: 100vh;
     align-items: center;
     position: absolute;
     top: 0;
+    left:0;
+    transform: translate(-300px) scale(0);
+    transition: all ease 0.5s;
+}
+
+.sliding-menu.open{
+    transform: translate(0) scale(1);
 }
 
 .sliding-menu-light{
-    background-color: var(--lt);
+    background-color:rgb(32, 31, 31);
+}
+
+.sliding-menu-light li{
     color: var(--dt);
+    font-size: 24px;
+    font-weight: bolder;
 }
 
 .sliding-menu-dark{
     background-color: var(--dt);
+    opacity: 0.65;
+}
+
+.sliding-menu-dark li{
     color: var(--lt);
+    font-size: 24px;
+    font-weight: bolder;
 }
 
 @media screen and (max-width:700px){
