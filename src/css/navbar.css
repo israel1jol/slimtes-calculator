@@ -1,0 +1,127 @@
+.cal-type-light, .cal-type-dark{
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.cal-type-light{
+    color: var(--lt);
+}
+
+.cal-type-dark{
+    color: var(--dt);
+}
+
+.menu-btn-light, .menu-btn-dark{
+    height: 5px;
+    transition: all ease 0.3s;
+    border-radius: 12px;
+    width: 40px;
+    position: relative;
+    cursor: pointer;
+    z-index: 10000000;
+}
+
+.menu-btn-light::before, .menu-btn-dark::before{
+    content: "";
+    height: 5px;
+    border-radius: 12px;
+    width: 30px;
+    position: absolute;
+    top: -10px;
+    transform: translateX(10px);
+}
+
+.menu-btn-light::after, .menu-btn-dark::after{
+    content: "";
+    height: 5px;
+    border-radius: 12px;
+    width: 30px;
+    position: absolute;
+    top: 10px;
+}
+
+.menu-btn-light ,.menu-btn-light::before, .menu-btn-light::after{
+    background-color: var(--lt);
+}
+
+.menu-btn-dark, .menu-btn-dark::before, .menu-btn-dark::after{
+    background-color: var(--dt);
+}
+
+.menu-btn-light.open, .menu-btn-dark.open{
+    background-color: var(--dt);
+    width: 5px;
+    transform: rotate(50deg) translate(-10px);
+}
+
+.menu-btn-light.open::before, .menu-btn-dark.open::before{
+    background-color: var(--dt);
+    transform: translateY(10px);
+}
+
+.menu-btn-light.open::after, .menu-btn-dark.open::after{
+    width: 30px;
+    background-color: var(--dt);
+    transform: rotate(84deg) translate(-10px);
+}
+
+
+
+.help-btn-light, .help-btn-dark{
+    border: none;
+    border-radius: 50%;
+    align-self: center;
+    height: 30px;
+    width: 30px;
+    padding:1px 2px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.help-btn-light{
+    background-color: var(--lt);
+    color: var(--dt);
+    transition: all ease 0.5s;
+}
+
+.help-btn-light:hover{
+    background-color: var(--dt);
+    color: var(--lt);
+}
+
+.help-btn-dark{
+    background-color: var(--dt);
+    color: var(--lt);
+    transition: all ease 0.5s;
+}
+
+.help-btn-dark:hover{
+    background-color: var(--lt);
+    color: var(--dt);
+}
+
+.sliding-menu-light, .sliding-menu-dark{
+    z-index: 100;
+    display: flex;
+    min-height: 40vh;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.sliding-menu-light{
+    background-color: var(--lt);
+    color: var(--dt);
+}
+
+.sliding-menu-dark{
+    background-color: var(--dt);
+    color: var(--lt);
+}
+
+@media screen and (max-width:700px){
+    .sliding-menu-light, .sliding-menu-dark{
+        min-height: 100vh;
+        min-width: 100vw;
+    }
+}

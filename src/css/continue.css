@@ -1,0 +1,52 @@
+.continue-btn{
+    background-color: rgba(95, 95, 95, 0.199);
+    color: white;
+    padding: 7px 25px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    box-shadow:12px 6px 20px rgba(0, 0, 0, 0.315);
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    transition: all ease 0.4s;
+    z-index: 1000000;
+}
+
+.continue-btn::before{
+    content: "";
+    position: absolute;
+    background:conic-gradient(rgb(224, 247, 19) 60deg, transparent 120deg);
+    width:2000%;
+    z-index: -1000;
+    height: 2000%;
+    transition: all ease 0.4s;
+    animation: rotate 5s infinite linear;
+}
+
+.continue-btn::after{
+    content:"";
+    z-index: -1;
+    border-radius: 3px;
+    position: absolute;
+    width: 95%;
+    height: 80%;
+    background-color: rgba(15, 15, 15, 0.911);
+}
+
+.continue-btn:hover{
+    transform: scale(1.02);
+}
+
+.continue-btn:hover::before{
+    background:conic-gradient(rgb(224, 247, 19) 60deg, transparent 120deg);
+    animation: rotate 500ms infinite linear;
+}
+
+
+@keyframes rotate{
+    0%{transform: rotate(0);}
+    100%{transform: rotate(-360deg);}
+}
